@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Pronamic Search by ID
-Plugin URI: http://wp.pronamic.eu/plugins/pronamic-search-by-id/
+Plugin URI: http://www.pronamic.eu/plugins/pronamic-search-by-id/
 Description: Enables the user to search by post ID using the built-in search. Works for all kinds of posts (posts, pages, custom post types).
 
 Version: 1.0.0
@@ -24,10 +24,10 @@ function pronamic_search_by_id_where( $where ) {
 
 		if ( ! empty( $s ) ) {
 			global $wpdb;
-			
+
 			if ( is_numeric( $s ) ) {
 				$where .= ' OR ' . $wpdb->posts . '.ID = ' . $s;
-			} elseif( preg_match( "/^(\d+)(,\s*\d+)*\$/", $s ) ) { // string of post IDs
+			} elseif ( preg_match( '/^(\d+)(,\s*\d+)*\$/', $s ) ) { // string of post IDs
 				$where .= ' OR ' . $wpdb->posts . '.ID in (' . $s . ')';
 			}
 		}
